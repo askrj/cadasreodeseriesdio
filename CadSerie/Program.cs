@@ -47,7 +47,7 @@ namespace CadSerie
 
 		private static void ExcluirSerie()
 		{
-			Console.Write("Digite o id da série: ");
+			Console.Write("Digite o código da série: ");
 			int indiceSerie = int.Parse(Console.ReadLine());
 
 			repositorio.Exclui(indiceSerie);
@@ -55,7 +55,7 @@ namespace CadSerie
 
 		private static void VisualizarSerie()
 		{
-			Console.Write("Digite o id da série: ");
+			Console.Write("Digite o código da série: ");
 			int indiceSerie = int.Parse(Console.ReadLine());
 
 			var serie = repositorio.RetornaPorId(indiceSerie);
@@ -65,11 +65,9 @@ namespace CadSerie
 
 		private static void AtualizarSerie()
 		{
-			Console.Write("Digite o id da série: ");
+			Console.Write("Digite o código da série: ");
 			int indiceSerie = int.Parse(Console.ReadLine());
 
-			// https://docs.microsoft.com/pt-br/dotnet/api/system.enum.getvalues?view=netcore-3.1
-			// https://docs.microsoft.com/pt-br/dotnet/api/system.enum.getname?view=netcore-3.1
 			foreach (int i in Enum.GetValues(typeof(Genero)))
 			{
 				Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
@@ -118,8 +116,6 @@ namespace CadSerie
 		{
 			Console.WriteLine("Inserir nova série");
 
-			// https://docs.microsoft.com/pt-br/dotnet/api/system.enum.getvalues?view=netcore-3.1
-			// https://docs.microsoft.com/pt-br/dotnet/api/system.enum.getname?view=netcore-3.1
 			foreach (int i in Enum.GetValues(typeof(Genero)))
 			{
 				Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
@@ -148,8 +144,8 @@ namespace CadSerie
 		private static string ObterOpcaoUsuario()
 		{
 			Console.WriteLine();
-			Console.WriteLine("DIO Séries a seu dispor!!!");
-			Console.WriteLine("Informe a opção desejada:");
+			Console.WriteLine("Minhas séries.");
+			Console.WriteLine("Informe a série desejada:");
 
 			Console.WriteLine("1- Listar séries");
 			Console.WriteLine("2- Inserir nova série");
